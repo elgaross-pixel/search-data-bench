@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../core/BaseLayout.astro';
+import TrackedLink from '../../../core/TrackedLink.astro';
+---
+<BaseLayout title="SE Ranking API Hands-On Review: Frozen Test Results (2026)" description="Hands-on SE Ranking API evidence from a frozen 25-keyword, six-SERP test conducted on September 21, 2026.">
+<section class="prose"><p class="eyebrow">Verified hands-on · Sep 21, 2026</p><h1>SE Ranking API hands-on review: what our frozen test returned</h1>
+<div class="notice"><strong>Provenance:</strong> these are real hands-on observations from the earlier SelectVerdict Phase 1A frozen protocol. They are not represented as execution of Search Data Benchmark #1.</div>
+<p>The test environment was Google / United States / English / Desktop. We submitted 25 frozen keywords. Twenty-three returned keyword data and two returned explicit no-data responses.</p>
+<h2>SERP and rank-tracking coverage</h2><p>All six frozen SERP deep-dives returned ten rows. Rank Tracker accepted all 25 frozen keywords and returned position rows for 24; one keyword remained unavailable after polling rather than being converted to rank zero.</p>
+<h2>Domain and backlink research</h2><p>Competitive/domain research and backlink research completed for all four frozen domains. Provider traffic and backlink figures are estimates from SE Ranking's databases, not first-party measurements.</p>
+<h2>Execution evidence</h2><table><tbody><tr><th>Successful Actions runtime</th><td>524.734 seconds</td></tr><tr><th>Initial API units</th><td>100000</td></tr><tr><th>Final API units</th><td>98980</td></tr><tr><th>Observed unit delta</th><td>1020</td></tr><tr><th>Direct monetary cost</th><td>$0</td></tr></tbody></table>
+<p>An early burst attempt produced HTTP 429 rate limiting. Later execution used throttling and retries. The exact per-endpoint allocation of the full unit delta was not established.</p>
+<h2>Evidence boundary</h2><p>This run proves what happened under its dated frozen inputs and available API access. It does not prove that every SE Ranking plan or later run behaves identically, and it is not an identical-workload comparison against DataForSEO or Mangools.</p>
+<h2>Commercial disclosure</h2><p>Search Data Bench uses a verified SE Ranking referral destination. Commercial status does not alter the reported test.</p><p><TrackedLink href="https://seranking.com/?ga=5265149&source=link" label="Visit SE Ranking" affiliate={true} eventId="affiliate-seranking-api-review" /></p></section>
+</BaseLayout>
