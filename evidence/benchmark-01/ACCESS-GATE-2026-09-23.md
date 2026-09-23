@@ -1,22 +1,30 @@
-# Search Data Bench — Benchmark #1 Access Gate
+# Search Data Bench — Benchmark #1 Execution Gate
 
 **Date:** 2026-09-23
 **Protocol:** SDB-B01 v1
-**Status:** OPEN
+**Status:** EVIDENCE-FIRST / NO USER API SETUP REQUIRED
 
-| Provider | Account/API evidence | Repository execution state | Benchmark status |
-|---|---|---|---|
-| DataForSEO | Existing DataForSEO account/API access is evidenced outside this repo; sandbox workflow already prepared. | Search Data Bench runner credentials not yet verified; sandbox PASS not yet recorded. | BLOCKED ON SECURE AUTH CHECK |
-| SE Ranking | API was executed successfully in SelectVerdict Phase 1A under its separate frozen protocol. | Search Data Bench has not yet established its own authenticated execution path. | BLOCKED ON ACCESS TRANSFER/CONFIG |
-| Mangools | Product hands-on work exists from SelectVerdict Phase 1A. | Exact API entitlement/authenticated API access for Search Data Bench is not yet verified. | UNKNOWN / ACCESS CHECK REQUIRED |
+## Operating decision
 
-## Rule
+Do not block Search Data Bench production on new API credential configuration. The project will proceed from evidence already collected and independently verifiable documentation. New API execution is a later optional evidence upgrade, not a prerequisite for drafting the first evidence assets.
 
-Prior success in another repository is evidence that an account/API existed, not permission to copy credentials or to claim a Search Data Bench run. Credentials must remain in secure secret storage and must never be committed, printed in logs, or pasted into evidence files.
+| Provider | Existing usable evidence | Current treatment |
+|---|---|---|
+| DataForSEO | Affiliate program active and exact referral URL verified; official API documentation can support documented capability statements. Search Data Bench live API run is not verified. | OFFICIAL DOCUMENTED for API capabilities; HANDS-ON only where direct evidence exists. |
+| SE Ranking | SelectVerdict Phase 1A contains successful API execution evidence under its own frozen protocol, including keyword, SERP, competitive and backlink work. | Existing hands-on observations may be cited internally as prior evidence with provenance; do not pretend they are SDB-B01 executions. |
+| Mangools | SelectVerdict Phase 1A contains hands-on product evidence and documented limits; exact Search Data Bench API entitlement is not verified. | HANDS-ON for previously executed product observations; API-specific claims remain OFFICIAL DOCUMENTED or UNKNOWN. |
+| Tally | Paused by user. | OUT OF SCOPE. |
 
-## Immediate execution order
+## Execution rule
 
-1. Complete DataForSEO zero-cost sandbox authentication smoke test already prepared in this repository.
-2. Establish SE Ranking authenticated API path without altering SelectVerdict D10 or its frozen evidence.
-3. Verify whether the current Mangools account includes usable API access and what endpoints/limits apply.
-4. Only after the access gate is resolved, execute SDB-B01 production workloads and retain sanitized evidence.
+Continue building evidence matrices, source packs and drafts now. Every material statement must carry one of the protocol evidence states. No missing API call may be silently replaced by a documentation claim.
+
+SDB-B01 remains frozen. It is not marked executed until its fixed workloads are actually run. Publication may use narrower claims supported by existing evidence before SDB-B01 execution, but must not be titled or represented as results of Benchmark #1.
+
+## Next production sequence
+
+1. Build provider evidence matrix from existing verified evidence and current primary sources.
+2. Build DataForSEO hands-on-review draft with NOT TESTED boundaries explicit.
+3. Build SE Ranking API review from existing Phase 1A execution evidence, preserving provenance.
+4. Build Mangools review with API access/entitlement marked UNKNOWN where applicable.
+5. Hold comparative benchmark result pages until sufficient comparable execution evidence exists.
