@@ -28,7 +28,7 @@ jobs:
           s=p.read_text()
           s=s.replace("name: 'TBD'", "name: 'Search Data Bench'")
           s=s.replace("domain: 'TBD'", "domain: 'searchdatabench.com'")
-          s=s.replace("url: 'https://example.invalid'", "url: 'https://searchdatabench.com'")
+          # Keep example.invalid while status remains planned/non-indexable; production URL is assigned at release.
           s=s.replace("tagline: 'TBD'", "tagline: 'Independent benchmarks for Search, SEO & AI data APIs.'")
           s=s.replace("description: 'TBD'", "description: 'Independent benchmarks and buyer research for Search Data, SEO APIs and AI Search APIs.'")
           s=s.replace("logoText: 'WF'", "logoText: 'SDB'")
