@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   scaffold:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,8 +21,12 @@ jobs:
           cd "$RUNNER_TEMP/factory"
           node scripts/new-site.mjs --out "$RUNNER_TEMP/child" --asset-id WF-A002 --repo elgaross-pixel/search-data-bench
           cd "$GITHUB_WORKSPACE"
+          cp .github/workflows/bootstrap-wf-a002.yml "$RUNNER_TEMP/bootstrap-wf-a002.yml"
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -a "$RUNNER_TEMP/child/." .
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          cp "$RUNNER_TEMP/bootstrap-wf-a002.yml" .github/workflows/bootstrap-wf-a002.yml
           python3 - <<'PY'
           from pathlib import Path
           p=Path("site.config.ts")
