@@ -1,0 +1,34 @@
+name: Factory starter CI
+permissions:
+  contents: write
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  build-and-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Bootstrap lockfile if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json
+            git commit -m "WF-002C: add reproducible npm lockfile"
+            git push
+          fi
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run qa
+      - run: npm run qa:production
+      - run: npm run journal:check
