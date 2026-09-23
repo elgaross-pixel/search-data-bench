@@ -1,0 +1,61 @@
+name: Bootstrap WF-A002
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scaffold from Athena Web Factory
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/elgaross-pixel/athena-web-factory.git "$RUNNER_TEMP/factory"
+          cd "$RUNNER_TEMP/factory"
+          node scripts/new-site.mjs --out "$RUNNER_TEMP/child" --asset-id WF-A002 --repo elgaross-pixel/search-data-bench
+          cd "$GITHUB_WORKSPACE"
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$RUNNER_TEMP/child/." .
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("site.config.ts")
+          s=p.read_text()
+          s=s.replace("name: 'TBD'", "name: 'Search Data Bench'")
+          s=s.replace("domain: 'TBD'", "domain: 'searchdatabench.com'")
+          s=s.replace("url: 'https://example.invalid'", "url: 'https://searchdatabench.com'")
+          s=s.replace("tagline: 'TBD'", "tagline: 'Independent benchmarks for Search, SEO & AI data APIs.'")
+          s=s.replace("description: 'TBD'", "description: 'Independent benchmarks and buyer research for Search Data, SEO APIs and AI Search APIs.'")
+          s=s.replace("logoText: 'WF'", "logoText: 'SDB'")
+          s=s.replace("publisherName: 'TBD'", "publisherName: 'Search Data Bench'")
+          p.write_text(s)
+          p=Path("journal/asset.yaml")
+          s=p.read_text()
+          s=s.replace("name: UNKNOWN", "name: Search Data Bench")
+          s=s.replace("domain: UNKNOWN", "domain: searchdatabench.com", 1)
+          s=s.replace("vertical: UNKNOWN", "vertical: SEO Data / Search APIs / AI Search Intelligence")
+          s=s.replace("status: planned", "status: planned")
+          s=s.replace("  approved_at: null", "  approved_at: 2026-09-23T00:00:00Z")
+          s=s.replace("  registered_at: null", "  registered_at: 2026-09-23T00:00:00Z")
+          s=s.replace("  registration_cost: null", "  registration_cost: 10.46")
+          s=s.replace("  registration_currency: null", "  registration_currency: USD")
+          s=s.replace("  renewal_cost: null", "  renewal_cost: 10.46")
+          s=s.replace("  renewal_currency: null", "  renewal_currency: USD")
+          s=s.replace("  registrar: null", "  registrar: Cloudflare Registrar")
+          p.write_text(s)
+          PY
+          npm ci
+          npm run build
+          npm run qa
+          npm run journal:check
+          npm run scaffold:check
+          git config user.name "Athena Web Factory"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Scaffold WF-A002 Search Data Bench"
+          git push
