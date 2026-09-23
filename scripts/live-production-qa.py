@@ -73,7 +73,7 @@ except Exception as exc:
 try:
     status, _, robots = get(BASE + "/robots.txt")
     check(status == 200, f"robots.txt status 200 (got {status})")
-    check(not re.search(r"(?im)^\\s*Disallow:\\s*/\\s*$", robots), "robots.txt does not block the whole site")
+    check(not re.search(r"(?im)^\s*Disallow:\s*/\s*$", robots), "robots.txt does not block the whole site")
 except Exception as exc:
     check(False, f"robots.txt request: {type(exc).__name__}: {exc}")
 
