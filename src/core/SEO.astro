@@ -1,0 +1,36 @@
+---
+import { siteConfig } from '../../site.config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: URL | string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url,
+  noindex = !siteConfig.seo.indexable,
+  schema,
+} = Astro.props;
+
+const fullTitle = title === siteConfig.site.name ? title : `${title} | ${siteConfig.site.name}`;
+const canonicalUrl = new URL(canonical, Astro.site);
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteConfig.site.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../core/BaseLayout.astro';
+import { siteConfig } from '../../site.config';
+import { websiteSchema } from '../core/schema';
+---
+<BaseLayout title={siteConfig.site.name} description={siteConfig.site.description} schema={websiteSchema()}>
+  <section class="hero">
+    <div class="container">
+      <p>Factory starter</p>
+      <h1>{siteConfig.site.name}</h1>
+      <p>{siteConfig.site.tagline}</p>
+      <p>This asset is in <strong>{siteConfig.asset.status}</strong> state and is not ready for indexing.</p>
+    </div>
+  </section>
+</BaseLayout>

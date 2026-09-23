@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '../../site.config';
+const enabled = siteConfig.measurement.trackAffiliateClicks;
+---
+{enabled && (
+  <script is:inline>
+    window.athenaTrack = window.athenaTrack || function(payload) {
+      window.dispatchEvent(new CustomEvent('athena:track:provider', { detail: payload }));
+    };
+    document.addEventListener('click', function(event) {
+      const target = event.target instanceof Element ? event.target.closest('a[data-track-event]') : null;
+      if (!target) return;
+      const eventId = target.getAttribute('data-track-event');
+      if (!eventId) return;
+      const affiliate = target.getAttribute('rel')?.split(/\s+/).includes('sponsored') || false;
+      window.athenaTrack({
+        eventId,
+        kind: affiliate ? 'affiliate_click' : 'outbound_click',
+        href: target.href,
+        label: (target.textContent || '').trim().slice(0, 200)
+      });
+    }, { capture: true });
+  </script>
+)}

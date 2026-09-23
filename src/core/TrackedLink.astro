@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  affiliate?: boolean;
+  class?: string;
+  eventId?: string;
+}
+const { href, label, affiliate = false, class: className, eventId } = Astro.props;
+const rel = affiliate ? 'sponsored noopener' : undefined;
+
+if (affiliate && !eventId) {
+  throw new Error('Affiliate links require an eventId for auditability.');
+}
+---
+<a href={href} rel={rel} class={className} data-track-event={eventId}>{label}</a>

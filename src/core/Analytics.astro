@@ -1,0 +1,5 @@
+---
+import { siteConfig } from '../../site.config';
+const provider = siteConfig.measurement.provider;
+---
+{provider === 'none' ? null : <meta name="factory-analytics-provider" content={provider} />}

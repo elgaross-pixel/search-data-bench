@@ -1,0 +1,11 @@
+---
+import { siteConfig } from '../../site.config';
+---
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label={`${siteConfig.site.name} home`}>
+      <span aria-hidden="true">{siteConfig.brand.logoText}</span>
+      {siteConfig.site.name}
+    </a>
+  </div>
+</header>
