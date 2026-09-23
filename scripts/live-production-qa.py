@@ -20,9 +20,9 @@ def get(url):
     request = urllib.request.Request(url, headers={"User-Agent": "SearchDataBench-ProductionQA/1.0"})
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT, context=ssl.create_default_context()) as response:
-            return response.status, response.url, response.headers, response.read(2_000_000).decode("utf-8", "replace")
+            return response.status, response.url, response.read(2_000_000).decode("utf-8", "replace")
     except urllib.error.HTTPError as exc:
-        return exc.code, exc.url, exc.headers, exc.read(100_000).decode("utf-8", "replace")
+        return exc.code, exc.url, exc.read(100_000).decode("utf-8", "replace")
 
 class Headings(HTMLParser):
     def __init__(self):
