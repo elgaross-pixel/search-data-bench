@@ -1,4 +1,12 @@
 :root {
-  --brand: #20252b;
+  --brand: #102a43;
+  --brand-strong: #071a2c;
+  --accent: #16a394;
+  --accent-soft: #dff7f3;
+  --ink: #14202b;
+  --muted: #5f6f7e;
+  --line: #dce5eb;
+  --surface: #ffffff;
+  --surface-soft: #f4f8fa;
   --brand-contrast: #ffffff;
 }
