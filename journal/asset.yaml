@@ -31,8 +31,8 @@ deployment:
 measurement:
   analytics_provider: none
   analytics_connected_at: null
-  gsc_verified_at: null
-  sitemap_submitted_at: null
+  gsc_verified_at: 2026-09-24T03:37:00Z
+  sitemap_submitted_at: 2026-09-24T03:37:00Z
   first_crawl_discovered_at: null
   first_indexed_url: null
   first_indexed_at: null

@@ -26,6 +26,7 @@ export const siteConfig = {
       { label: 'About', href: '/about/' },
       { label: 'Methodology', href: '/methodology/' },
       { label: 'Affiliate disclosure', href: '/affiliate-disclosure/' },
+      { label: 'Privacy', href: '/privacy/' },
     ],
   },
   seo: { trailingSlash: 'always' as const, indexable: true, defaultOgImage: null },
