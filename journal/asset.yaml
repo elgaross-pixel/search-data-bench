@@ -29,8 +29,8 @@ deployment:
   ssl_active_at: null
 
 measurement:
-  analytics_provider: none
-  analytics_connected_at: null
+  analytics_provider: Cloudflare Web Analytics
+  analytics_connected_at: 2026-09-24T05:00:00Z
   gsc_verified_at: 2026-09-24T03:37:00Z
   sitemap_submitted_at: 2026-09-24T03:37:00Z
   first_crawl_discovered_at: null
