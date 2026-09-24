@@ -10,8 +10,24 @@ export const siteConfig = {
     description: 'Independent benchmarks and buyer research for Search Data, SEO APIs and AI Search APIs.',
   },
   brand: { logoText: 'SDB', favicon: '/favicon.svg', themeColor: '#20252b' },
-  editorial: { publisherName: 'Search Data Bench', methodologyUrl: null, affiliateDisclosureUrl: null },
-  navigation: { primary: [], footer: [] },
+  editorial: {
+    publisherName: 'Search Data Bench',
+    methodologyUrl: '/methodology/',
+    affiliateDisclosureUrl: '/affiliate-disclosure/',
+  },
+  navigation: {
+    primary: [
+      { label: 'Research', href: '/research/' },
+      { label: 'Reviews', href: '/reviews/' },
+      { label: 'Benchmarks', href: '/benchmarks/' },
+      { label: 'Methodology', href: '/methodology/' },
+    ],
+    footer: [
+      { label: 'About', href: '/about/' },
+      { label: 'Methodology', href: '/methodology/' },
+      { label: 'Affiliate disclosure', href: '/affiliate-disclosure/' },
+    ],
+  },
   seo: { trailingSlash: 'always' as const, indexable: true, defaultOgImage: null },
   measurement: { provider: 'none' as const, analyticsId: null, trackAffiliateClicks: true },
   publication: { journalEnabled: true },

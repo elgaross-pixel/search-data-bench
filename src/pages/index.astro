@@ -6,10 +6,29 @@ import { websiteSchema } from '../core/schema';
 <BaseLayout title={siteConfig.site.name} description={siteConfig.site.description} schema={websiteSchema()}>
   <section class="hero">
     <div class="container">
-      <p>Independent research</p>
+      <p class="eyebrow">Independent research</p>
       <h1>{siteConfig.site.name}</h1>
-      <p>{siteConfig.site.tagline}</p>
+      <p class="lede">{siteConfig.site.tagline}</p>
       <p>Evidence-led benchmarks and buyer research for search data providers, SEO APIs, SERP APIs, and AI search intelligence tools.</p>
+      <p class="hero-actions"><a class="button" href="/research/">Explore the research</a><a class="text-link" href="/methodology/">How we test</a></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Current research</h2>
+      <div class="cards">
+        <article class="card"><p class="eyebrow">Benchmark #1</p><h3><a href="/benchmarks/search-data-benchmark-01/">Search Data Benchmark #1</a></h3><p>Frozen methodology for comparing DataForSEO, SE Ranking API and Mangools API on fixed workloads.</p></article>
+        <article class="card"><p class="eyebrow">Hands-on evidence</p><h3><a href="/reviews/se-ranking-api/">SE Ranking API review</a></h3><p>Results from a prior frozen hands-on run, with limits and provenance preserved.</p></article>
+        <article class="card"><p class="eyebrow">Provider evidence</p><h3><a href="/reviews/dataforseo/">DataForSEO review</a></h3><p>Documented API coverage with explicit boundaries around what Search Data Bench has not yet tested.</p></article>
+        <article class="card"><p class="eyebrow">Provider evidence</p><h3><a href="/reviews/mangools-api/">Mangools API review</a></h3><p>Hands-on product evidence separated from current documented API capabilities.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section section-muted">
+    <div class="container narrow">
+      <h2>Evidence before verdicts</h2>
+      <p>We freeze inputs before tests, preserve missing and limited results, separate hands-on findings from provider documentation, and avoid forcing proprietary metrics into false equivalence.</p>
+      <p><a href="/methodology/">Read the methodology →</a></p>
     </div>
   </section>
 </BaseLayout>

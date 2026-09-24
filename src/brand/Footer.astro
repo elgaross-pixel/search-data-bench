@@ -2,7 +2,10 @@
 import { siteConfig } from '../../site.config';
 ---
 <footer class="site-footer">
-  <div class="container">
+  <div class="container footer-inner">
     <small>&copy; {new Date().getFullYear()} {siteConfig.site.name}</small>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      {siteConfig.navigation.footer.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
   </div>
 </footer>
