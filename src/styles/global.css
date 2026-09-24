@@ -72,7 +72,7 @@ main { min-height:60vh; }
 .footer-brand { color:#fff; }.footer-note { max-width:28rem; color:#9fb1bf; font-size:.9rem; }
 .footer-nav { justify-content:flex-end; }.footer-nav a { color:#c8d3db; }
 .footer-bottom { display:flex; justify-content:space-between; gap:1rem; margin-top:2rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.12); color:#8299aa; }
-@media (max-width:800px) {
+@media (max-width:800px) {\n .prose { overflow-x:hidden; }\n .prose table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; font-size:.86rem; }\n .prose th,.prose td { min-width:9rem; padding:.65rem; }\n .prose th:first-child,.prose td:first-child { min-width:7rem; }
  .container,.prose { width:min(calc(100% - 2rem),74rem); }
  .header-inner { align-items:flex-start; flex-direction:column; gap:.9rem; }
  .primary-nav { width:100%; gap:.7rem 1.1rem; overflow-x:auto; flex-wrap:nowrap; padding-bottom:.15rem; }
